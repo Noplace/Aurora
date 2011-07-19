@@ -2,8 +2,8 @@
 #define GAME_ENGINE_SCENE_H
 
 #include <VisualEssence/Code/component.h>
-#include <VisualEssence/Code/camera.h>
-#include <VisualEssence/Code/shader.h>
+#include <VisualEssence/Code/camera/camera.h>
+#include <VisualEssence/Code/shader/shader.h>
 
 namespace game_engine {
 

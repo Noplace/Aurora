@@ -4,12 +4,12 @@
 #include <WinCore/windows/windows.h>
 #include <WinCore/timer/timer2.h>
 #include <WinCore/animation/animation.h>
-#include <VisualEssence/Code/contextd3d11.h>
+#include <VisualEssence/Code/context/contextd3d11.h>
 //#include <Graphics/vertex.h>
-#include <VisualEssence/Code/vertex_buffer.h>
-#include <VisualEssence/Code/camera2d.h>
+#include <VisualEssence/Code/buffer/vertex_buffer.h>
+#include <VisualEssence/Code/camera/camera2d.h>
 //#include <Graphics/font/bmfont/font.h>
-#include <VisualEssence/Code/effect.h>
+#include <VisualEssence/Code/effect/effect.h>
 #include <VisualEssence/Code/font/writer.h>
 #include "component.h"
 #include "resource/resource_manager.h"
