@@ -48,6 +48,9 @@
     <ClInclude Include="Code\state\state_manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Code\resource\font_resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\engine.cpp">
@@ -66,6 +69,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Code\state\state_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\resource\font_resource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

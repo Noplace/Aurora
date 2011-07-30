@@ -74,6 +74,7 @@
     <ClInclude Include="Code\engine.h" />
     <ClInclude Include="Code\game_engine.h" />
     <ClInclude Include="Code\game_view.h" />
+    <ClInclude Include="Code\resource\font_resource.h" />
     <ClInclude Include="Code\resource\resource.h" />
     <ClInclude Include="Code\resource\resource_manager.h" />
     <ClInclude Include="Code\resource\texture_resource.h" />
@@ -83,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\engine.cpp" />
+    <ClCompile Include="Code\resource\font_resource.cpp" />
     <ClCompile Include="Code\resource\resource.cpp" />
     <ClCompile Include="Code\resource\resource_manager.cpp" />
     <ClCompile Include="Code\resource\texture_resource.cpp" />

@@ -14,7 +14,9 @@ enum Type {
   RESOURCE_TYPE_GRAPHICS = 1,
   RESOURCE_TYPE_MOVIE = 2,
   RESOURCE_TYPE_AUDIO = 3,
-  RESOURCE_TYPE_TEXT = 4
+  RESOURCE_TYPE_TEXT = 4,
+  RESOURCE_TYPE_BMFONT = 5,
+  RESOURCE_TYPE_OTHER = 100
 };
 
 class Resource  {
@@ -31,6 +33,8 @@ class Resource  {
     data_length = src.data_length;
   }
   virtual ~Resource()  {}
+  int ReadWholeFile();
+  int DeallocateMemory();
   virtual bool Load();
   virtual bool Unload();
   uint32_t scope() { return scope_; }
@@ -41,7 +45,7 @@ class Resource  {
   void set_manager(ResourceManager* manager) { manager_ = manager; }
   void set_type(Type type) { type_ = type; }
   Type type() { return type_; }
-  char* filename() { return filename_; }
+  const char* filename() { return filename_; }
   uint32_t uid() { return uid_; }
   bool loaded() { return loaded_; }
   void* data_pointer;

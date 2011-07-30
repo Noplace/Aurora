@@ -5,10 +5,8 @@
 namespace game_engine {
 namespace resource {
 
-bool Resource::Load() {
-  if (loaded_ == true) 
-    return false;
-  
+int Resource::ReadWholeFile() {
+   
   std::ios::openmode mode = std::ios::beg | std::ios::in;
   if (type_ != 4) {
     mode |= std::ios::binary;
@@ -30,16 +28,38 @@ bool Resource::Load() {
   
   ifs.close();
 
-  loaded_ = true;
-  return true;
+  return S_OK;
+}
+
+int Resource::DeallocateMemory() {
+  if (HeapFree(manager_->heap(),0,data_pointer)==0)
+    return S_OK;
+  else
+    return S_FALSE;
+}
+
+bool Resource::Load() {
+  if (loaded_ == true) 
+    return false;
+ 
+  if (ReadWholeFile() == S_OK) {
+    loaded_ = true;
+    return true;
+  } else {
+    return false;
+  }
 }
 
 bool Resource::Unload() {
   if (loaded_ == false) 
     return false;
-  HeapFree(manager_->heap(),0,data_pointer);
-  loaded_ = false;
-  return true;
+  if (DeallocateMemory() == S_OK) {
+    loaded_ = false;
+    return true;
+  } else {
+    return false;
+  }
+
 }
 
 }

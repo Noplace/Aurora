@@ -5,22 +5,28 @@ namespace game_engine {
 namespace resource {
 
 bool TextureResource::Load() {
-  bool res = Resource::Load();
-  if (res) {
-    HRESULT hr = D3DX11CreateShaderResourceViewFromMemory(manager_->engine()->gfx_context().device(),data_pointer,data_length,NULL,NULL,&srv_,NULL);
+  if (loaded_ == true) 
+    return false;
+
+  int res = Resource::ReadWholeFile();
+  if (res == S_OK) {
+    res = D3DX11CreateShaderResourceViewFromMemory(manager_->engine()->gfx_context().device(),data_pointer,data_length,NULL,NULL,&srv_,NULL);
+    Resource::DeallocateMemory();
+    if (res == S_OK) {
+      loaded_ = true;
+      return true;
+    }
   }
-  return res;
+  return false;
 }
 
 bool TextureResource::Unload() {
-  bool res = Resource::Unload();
-  if (res) {
-    if (srv_ != NULL) {
-        srv_->Release();
-        srv_ = NULL;
-    }
-  }
-  return res;
+  if (loaded_ == false) 
+    return false;
+
+  SafeRelease(&srv_);
+  loaded_ = false;
+  return S_OK;
 }
 
 }

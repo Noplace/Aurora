@@ -6,6 +6,8 @@
 #include <vector>
 #include "../component.h"
 #include "resource.h"
+#include "font_resource.h"
+#include "texture_resource.h"
 
 namespace game_engine {
 namespace resource {

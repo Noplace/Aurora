@@ -1,9 +1,9 @@
 #include <Windows.h>
 #include <fstream>
 #include <WinCore/xml/rapidxml/rapidxml.hpp>
-#include "resource.h"
-#include "texture_resource.h"
 #include "resource_manager.h"
+
+
 
 
 namespace game_engine {
@@ -60,6 +60,8 @@ bool ResourceManager::LoadXml(char* filename) {
 
         if (type == Type::RESOURCE_TYPE_GRAPHICS) {
           resource = new TextureResource();
+        } else if (type == Type::RESOURCE_TYPE_BMFONT) {
+          resource = new FontResource();
         } else {
           resource = new Resource();
         }
