@@ -72,11 +72,15 @@
   <ItemGroup>
     <ClInclude Include="Code\component.h" />
     <ClInclude Include="Code\engine.h" />
+    <ClInclude Include="Code\event\event.h" />
+    <ClInclude Include="Code\event\event_manager.h" />
+    <ClInclude Include="Code\util\string_hash.h" />
     <ClInclude Include="Code\game_engine.h" />
     <ClInclude Include="Code\game_view.h" />
     <ClInclude Include="Code\resource\font_resource.h" />
     <ClInclude Include="Code\resource\resource.h" />
     <ClInclude Include="Code\resource\resource_manager.h" />
+    <ClInclude Include="Code\resource\effect_resource.h" />
     <ClInclude Include="Code\resource\texture_resource.h" />
     <ClInclude Include="Code\state\state.h" />
     <ClInclude Include="Code\state\state_interface.h" />
@@ -84,9 +88,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\engine.cpp" />
+    <ClCompile Include="Code\event\event.cpp" />
+    <ClCompile Include="Code\event\event_manager.cpp" />
     <ClCompile Include="Code\resource\font_resource.cpp" />
     <ClCompile Include="Code\resource\resource.cpp" />
     <ClCompile Include="Code\resource\resource_manager.cpp" />
+    <ClCompile Include="Code\resource\effect_resource.cpp" />
     <ClCompile Include="Code\resource\texture_resource.cpp" />
     <ClCompile Include="Code\state\state.cpp" />
     <ClCompile Include="Code\state\state_manager.cpp" />

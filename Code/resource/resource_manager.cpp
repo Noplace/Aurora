@@ -15,13 +15,17 @@ ResourceManager::ResourceManager() {
 }
 
 ResourceManager::~ResourceManager() {
+  HeapDestroy(heap_);
+}
+
+int ResourceManager::UnloadAll() {
   std::vector<Resource*>::iterator i;
   for (i = resource_list_.begin(); i!= resource_list_.end(); ++i) {
     Resource* res = (*i);
     res->Unload();
     delete res;
   }
-  HeapDestroy(heap_);
+  return S_OK;
 }
 
 bool ResourceManager::LoadXml(char* filename) {
@@ -50,7 +54,7 @@ bool ResourceManager::LoadXml(char* filename) {
 
       if (strcmp(cnode->name(),"resource")==0) {
 
-        Type type = Type::RESOURCE_TYPE_NULL;
+        Type type = RESOURCE_TYPE_NULL;
         Resource* resource = NULL;
         for (rapidxml::xml_attribute<> *attr = cnode->first_attribute(); attr; attr = attr->next_attribute()) {
           if (!strcmp(attr->name(),"type")) {
@@ -58,12 +62,19 @@ bool ResourceManager::LoadXml(char* filename) {
           }
         }
 
-        if (type == Type::RESOURCE_TYPE_GRAPHICS) {
-          resource = new TextureResource();
-        } else if (type == Type::RESOURCE_TYPE_BMFONT) {
-          resource = new FontResource();
-        } else {
-          resource = new Resource();
+        switch (type) {
+          case RESOURCE_TYPE_GRAPHICS:
+            resource = new TextureResource();
+            break;
+          case RESOURCE_TYPE_BMFONT:
+            resource = new FontResource();
+            break;
+          case RESOURCE_TYPE_EFFECT:
+            resource = new EffectResource();
+            break;
+          default:
+            resource = new Resource();
+            break;
         }
 
         for (rapidxml::xml_attribute<> *attr = cnode->first_attribute(); attr; attr = attr->next_attribute()) {

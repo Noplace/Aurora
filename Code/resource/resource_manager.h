@@ -8,6 +8,7 @@
 #include "resource.h"
 #include "font_resource.h"
 #include "texture_resource.h"
+#include "effect_resource.h"
 
 namespace game_engine {
 namespace resource {
@@ -16,12 +17,13 @@ class ResourceManager : public Component {
  public:
   ResourceManager();
   ~ResourceManager();
+  int UnloadAll();
   bool LoadXml(char* filename);
   template<class T>
   T* GetResourceById(uint32_t uid) {
     std::vector<Resource*>::iterator i;
     for (i = resource_list_.begin(); i!= resource_list_.end(); ++i) {
-      Resource* res = (*i);
+      T* res = (T*)(*i);
       if (res->uid() == uid) {
         res->Load();
         return res;

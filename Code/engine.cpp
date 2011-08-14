@@ -2,41 +2,11 @@
 #include "game_view.h"
 
 
-//--------------------------------------------------------------------------------------
-// Helper for compiling shaders with D3DX11
-//--------------------------------------------------------------------------------------
-HRESULT CompileShaderFromFile( LPCSTR szFileName, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob** ppBlobOut )
-{
-    HRESULT hr = S_OK;
-
-    DWORD dwShaderFlags = D3DCOMPILE_ENABLE_STRICTNESS;
-#if defined( DEBUG ) || defined( _DEBUG )
-    // Set the D3DCOMPILE_DEBUG flag to embed debug information in the shaders.
-    // Setting this flag improves the shader debugging experience, but still allows 
-    // the shaders to be optimized and to run exactly the way they will run in 
-    // the release configuration of this program.
-    dwShaderFlags |= D3DCOMPILE_DEBUG;
-#endif
-
-    ID3DBlob* pErrorBlob;
-    hr = D3DX11CompileFromFile( szFileName, NULL, NULL, szEntryPoint, szShaderModel, 
-        dwShaderFlags, 0, NULL, ppBlobOut, &pErrorBlob, NULL );
-    if( FAILED(hr) )
-    {
-        if( pErrorBlob != NULL )
-            OutputDebugStringA( (char*)pErrorBlob->GetBufferPointer() );
-        if( pErrorBlob ) pErrorBlob->Release();
-        return hr;
-    }
-    if( pErrorBlob ) pErrorBlob->Release();
-
-    return S_OK;
-}
-
-
 namespace game_engine {
 
+
 Engine::Engine() : timer_(NULL),window_(NULL) {
+  render_time_span = 0;
 }
 
 Engine::~Engine() {
@@ -46,7 +16,7 @@ Engine::~Engine() {
 int Engine::Initialize() {
   global_time_ = 0;
   timer_->Calibrate();
-  animation_.set_delta(1);
+
   gfx_context_.Initialize();
   gfx_context_.CreateDisplay(window_);
   resource_manager.set_engine(this);
@@ -65,21 +35,33 @@ int Engine::Initialize() {
   
   HRESULT hr = S_OK;
   
-  
+  prev_time = timer_->GetCurrentCycles();
   return hr;
 }
 
 int Engine::Deinitialize() {
-    // if( g_pImmediateContext ) g_pImmediateContext->ClearState();
-    gfx_context_.Deinitialize();
-    return S_OK;
+  // if( g_pImmediateContext ) g_pImmediateContext->ClearState();
+  resource_manager.UnloadAll();
+  gfx_context_.Deinitialize();
+  return S_OK;
 }
 
 void Engine::Loop() {
-   //static float time = 0;
-  //graphics::VertexBuffer<int> vb;
-  animation_.Process();
-  if (timer_->isTimeForUpdate(60) == true) {
+ 
+  curr_time = timer_->GetCurrentCycles();
+
+  float time_span = (curr_time - prev_time) * timer_->resolution();
+  prev_time = curr_time;
+
+  render_time_span += time_span;
+
+  process_manager_.Update(1);
+  animation_.Process(time_span);
+
+
+  //if (timer_->isTimeForUpdate(60) == true) {
+  if (render_time_span > 16.667f) {
+
     //
     // Clear the back buffer
     //
