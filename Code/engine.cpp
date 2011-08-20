@@ -6,7 +6,7 @@ namespace game_engine {
 
 
 Engine::Engine() : timer_(NULL),window_(NULL) {
-  render_time_span = 0;
+  
 }
 
 Engine::~Engine() {
@@ -14,7 +14,7 @@ Engine::~Engine() {
 }
 
 int Engine::Initialize() {
-  global_time_ = 0;
+  memset(&timing,0,sizeof(timing));
   timer_->Calibrate();
 
   gfx_context_.Initialize();
@@ -35,7 +35,7 @@ int Engine::Initialize() {
   
   HRESULT hr = S_OK;
   
-  prev_time = timer_->GetCurrentCycles();
+  timing.prev_cycles = timer_->GetCurrentCycles();
   return hr;
 }
 
@@ -48,19 +48,15 @@ int Engine::Deinitialize() {
 
 void Engine::Loop() {
  
-  curr_time = timer_->GetCurrentCycles();
-
-  float time_span = (curr_time - prev_time) * timer_->resolution();
-  prev_time = curr_time;
-
-  render_time_span += time_span;
-
-  process_manager_.Update(1);
+  timing.current_cycles = timer_->GetCurrentCycles();
+  uint64_t cycle_diff = (timing.current_cycles - timing.prev_cycles);
+  float time_span =  cycle_diff * timer_->resolution();
+  
+  process_manager_.Update(time_span);
   animation_.Process(time_span);
+  current_scene->Update(time_span);
 
-
-  //if (timer_->isTimeForUpdate(60) == true) {
-  if (render_time_span > 16.667f) {
+  if (timing.render_time_span > 16.667f) {
 
     //
     // Clear the back buffer
@@ -72,8 +68,19 @@ void Engine::Loop() {
 
     gfx_context_.Render();
 
+    timing.render_time_span = 0;
   }
-  global_time_++;
+
+  timing.fps_time_span += time_span;
+  timing.render_time_span += time_span;
+  timing.total_cycles += cycle_diff;
+  timing.prev_cycles = timing.current_cycles;
+  timing.fps_counter++;
+  if (timing.fps_time_span >= 1000) {
+    timing.fps = timing.fps_counter;
+    timing.fps_counter = 0;
+    timing.fps_time_span = 0;
+  }
 }
 
 }

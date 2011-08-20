@@ -16,8 +16,10 @@ class TextureResource : public Resource {
   virtual bool Load();
   virtual bool Unload();
   ID3D11ShaderResourceView* srv() { return srv_; }
+  ID3D11Resource* texture() { return texture_; }
  protected:
   ID3D11ShaderResourceView* srv_;
+  ID3D11Resource* texture_;
   D3DX11_IMAGE_LOAD_INFO info_;
 
 };

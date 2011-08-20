@@ -10,7 +10,13 @@ bool TextureResource::Load() {
 
   int res = Resource::ReadWholeFile();
   if (res == S_OK) {
-    res = D3DX11CreateShaderResourceViewFromMemory(manager_->engine()->gfx_context().device(),data_pointer,data_length,NULL,NULL,&srv_,NULL);
+    //res = D3DX11CreateShaderResourceViewFromMemory(manager_->engine()->gfx_context().device(),data_pointer,data_length,NULL,NULL,&srv_,NULL);
+    res = D3DX11CreateTextureFromMemory(manager_->engine()->gfx_context().device(),data_pointer,data_length,NULL,NULL,&texture_,NULL);
+
+    if (res == S_OK) {
+      manager_->engine()->gfx_context().device()->CreateShaderResourceView(texture_,NULL,&srv_);
+    }
+
     Resource::DeallocateMemory();
     if (res == S_OK) {
       loaded_ = true;
@@ -25,6 +31,7 @@ bool TextureResource::Unload() {
     return false;
 
   SafeRelease(&srv_);
+  SafeRelease(&texture_);
   loaded_ = false;
   return S_OK;
 }

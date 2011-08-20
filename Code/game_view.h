@@ -22,6 +22,7 @@ class GameView : public Component {
     hr = camera_.Deinitialize();
     return hr;
   }
+  virtual void Update(float) = 0;
   virtual void Draw() = 0;
  protected:
 

@@ -41,7 +41,7 @@ int StateManager::ChangeState(int id) {
     current_state_->OnStateExit();
   }
   current_state_ = GetStateById(id);
-  current_state_->set_start_time(engine_->global_time());
+  current_state_->set_start_time(engine_->total_cycles());
   current_state_->OnStateEnter();
   return 0;
 }

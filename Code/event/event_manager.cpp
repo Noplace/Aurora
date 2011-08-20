@@ -48,7 +48,7 @@ int EventManager::QueueEvent(const char* event_name, EventData data) {
     return -1;
   
   Event e(event_name);
-  data.time_stamp = engine()->global_time();
+  data.time_stamp = engine()->total_cycles();
   EventQueueEntry item(e.hash(),data);
   active_queue().push(item);
 
