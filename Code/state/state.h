@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "state_interface.h"
 
-namespace game_engine {
+namespace aurora {
 
 class StateManager;
 

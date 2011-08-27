@@ -8,7 +8,7 @@
 #include "../component.h"
 
 
-namespace game_engine {
+namespace aurora {
 
 class Event;
 typedef int (*EventListener)(EventHash,EventData EventData);

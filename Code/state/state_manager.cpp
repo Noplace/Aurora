@@ -1,7 +1,7 @@
 #include "state_manager.h"
 #include "../engine.h"
 
-namespace game_engine {
+namespace aurora {
 
 int StateManager::AddState(State* state)  {
   if (GetStateById(state->id()) == NULL) {

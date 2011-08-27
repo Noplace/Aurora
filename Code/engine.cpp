@@ -1,8 +1,8 @@
-#include "game_engine.h"
+#include "aurora.h"
 #include "game_view.h"
 
 
-namespace game_engine {
+namespace aurora {
 
 
 Engine::Engine() : timer_(NULL),window_(NULL) {

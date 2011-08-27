@@ -2,7 +2,7 @@
 #include "event_manager.h"
 #include "../engine.h"
 
-namespace game_engine {
+namespace aurora {
 
 EventManager::EventManager() : active_queue_index(0) {
 

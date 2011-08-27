@@ -1,7 +1,7 @@
 #include "../engine.h"
 #include "texture_resource.h"
 
-namespace game_engine {
+namespace aurora {
 namespace resource {
 
 bool TextureResource::Load() {

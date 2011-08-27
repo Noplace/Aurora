@@ -21,9 +21,6 @@
     <ClInclude Include="Code\engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Code\game_engine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Code\game_view.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -63,6 +60,27 @@
     <ClInclude Include="Code\util\string_hash.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Code\tiles\tiles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\tiles\tile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\tiles\tile_set.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\tiles\layer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\tiles\map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\aurora.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\resource\tmx_resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\engine.cpp">
@@ -93,6 +111,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Code\event\event_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\tiles\tile_set.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\tiles\layer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\tiles\map.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\resource\tmx_resource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

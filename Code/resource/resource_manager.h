@@ -1,5 +1,5 @@
-#ifndef GAME_ENGINE_RESOURCE_RESOURCE_MANAGER_H
-#define GAME_ENGINE_RESOURCE_RESOURCE_MANAGER_H
+#ifndef AURORA_RESOURCE_RESOURCE_MANAGER_H
+#define AURORA_RESOURCE_RESOURCE_MANAGER_H
 
 #include <Windows.h>
 #include <map>
@@ -10,7 +10,7 @@
 #include "texture_resource.h"
 #include "effect_resource.h"
 
-namespace game_engine {
+namespace aurora {
 namespace resource {
 
 class ResourceManager : public Component {

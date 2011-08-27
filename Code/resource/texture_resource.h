@@ -1,10 +1,10 @@
-#ifndef GAME_ENGINE_RESOURCE_TEXTURE_RESOURCE_H
-#define GAME_ENGINE_RESOURCE_TEXTURE_RESOURCE_H
+#ifndef AURORA_RESOURCE_TEXTURE_RESOURCE_H
+#define AURORA_RESOURCE_TEXTURE_RESOURCE_H
 
 #include <D3DX11.h>
 #include "resource.h"
 
-namespace game_engine {
+namespace aurora {
 namespace resource {
 
 class ResourceManager;

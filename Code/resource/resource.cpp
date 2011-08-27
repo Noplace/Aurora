@@ -1,8 +1,10 @@
+#include <string.h>
+#include <fstream>
 #include "resource.h"
 #include "resource_manager.h"
-#include <fstream>
 
-namespace game_engine {
+
+namespace aurora {
 namespace resource {
 
 int Resource::ReadWholeFile() {
@@ -60,6 +62,10 @@ bool Resource::Unload() {
     return false;
   }
 
+}
+
+void Resource::set_filename(const char* filename) { 
+  strcpy_s<1024>(filename_,filename); 
 }
 
 }

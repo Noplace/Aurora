@@ -1,9 +1,9 @@
-#ifndef GAME_ENGINE_OBJECT_H
-#define GAME_ENGINE_OBJECT_H
+#ifndef AURORA_OBJECT_H
+#define AURORA_OBJECT_H
 
 #include <WinCore/types.h>
 
-namespace game_engine {
+namespace aurora {
 
 class Engine;
 

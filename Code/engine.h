@@ -1,5 +1,5 @@
-#ifndef GAME_ENGINE_ENGINE_H
-#define GAME_ENGINE_ENGINE_H
+#ifndef AURORA_ENGINE_H
+#define AURORA_ENGINE_H
 
 #include <WinCore/windows/windows.h>
 #include <WinCore/timer/timer2.h>
@@ -17,7 +17,7 @@
 #include "resource/resource_manager.h"
 
 
-namespace game_engine {
+namespace aurora {
 
 class GameView;
 
@@ -28,7 +28,7 @@ class Engine {
   int Initialize();
   int Deinitialize();
   void Loop();
-  game_engine::resource::ResourceManager resource_manager;
+  aurora::resource::ResourceManager resource_manager;
   utilities::Timer* timer() { return timer_; }
   void set_timer(utilities::Timer* timer) { timer_ = timer; }
   core::windows::Window* window() { return window_; }

@@ -1,10 +1,9 @@
-#ifndef GAME_ENGINE_RESOURCE_RESOURCE_H
-#define GAME_ENGINE_RESOURCE_RESOURCE_H
+#ifndef AURORA_RESOURCE_RESOURCE_H
+#define AURORA_RESOURCE_RESOURCE_H
 
 #include <WinCore/types.h>
-#include <string.h>
 
-namespace game_engine {
+namespace aurora {
 namespace resource {
 
 class ResourceManager;
@@ -22,7 +21,7 @@ enum Type {
 
 class Resource  {
  public:
-  Resource() : type_(RESOURCE_TYPE_NULL),scope_(0),uid_(0),loaded_(false),data_pointer(NULL),data_length(0),manager_(NULL) {}
+  Resource() : type_(RESOURCE_TYPE_NULL),scope_(0),uid_(0),loaded_(false),data_pointer(null),data_length(0),manager_(null) {}
   Resource(const Resource& src) {
     set_scope(src.scope_);
     set_uid(src.uid_);
@@ -41,7 +40,7 @@ class Resource  {
   uint32_t scope() { return scope_; }
   void set_scope(uint32_t scope) { scope_ = scope; }
   void set_uid(uint32_t uid) { uid_ = uid; }
-  void set_filename(const char* filename) { strcpy_s<1024>(filename_,filename); }
+  void set_filename(const char* filename);
   ResourceManager* manager() { return manager_; }
   void set_manager(ResourceManager* manager) { manager_ = manager; }
   void set_type(Type type) { type_ = type; }

@@ -1,7 +1,7 @@
 #include "../engine.h"
 #include "effect_resource.h"
 
-namespace game_engine {
+namespace aurora {
 namespace resource {
 
 bool EffectResource::Load() {

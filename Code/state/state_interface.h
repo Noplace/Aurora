@@ -3,7 +3,7 @@
 
 #include "../component.h"
 
-namespace game_engine {
+namespace aurora {
 
 class StateInterface : public Component {
  public:

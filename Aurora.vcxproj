@@ -74,8 +74,14 @@
     <ClInclude Include="Code\engine.h" />
     <ClInclude Include="Code\event\event.h" />
     <ClInclude Include="Code\event\event_manager.h" />
+    <ClInclude Include="Code\resource\tmx_resource.h" />
+    <ClInclude Include="Code\tiles\layer.h" />
+    <ClInclude Include="Code\tiles\map.h" />
+    <ClInclude Include="Code\tiles\tile.h" />
+    <ClInclude Include="Code\tiles\tiles.h" />
+    <ClInclude Include="Code\tiles\tile_set.h" />
     <ClInclude Include="Code\util\string_hash.h" />
-    <ClInclude Include="Code\game_engine.h" />
+    <ClInclude Include="Code\aurora.h" />
     <ClInclude Include="Code\game_view.h" />
     <ClInclude Include="Code\resource\font_resource.h" />
     <ClInclude Include="Code\resource\resource.h" />
@@ -95,8 +101,12 @@
     <ClCompile Include="Code\resource\resource_manager.cpp" />
     <ClCompile Include="Code\resource\effect_resource.cpp" />
     <ClCompile Include="Code\resource\texture_resource.cpp" />
+    <ClCompile Include="Code\resource\tmx_resource.cpp" />
     <ClCompile Include="Code\state\state.cpp" />
     <ClCompile Include="Code\state\state_manager.cpp" />
+    <ClCompile Include="Code\tiles\layer.cpp" />
+    <ClCompile Include="Code\tiles\map.cpp" />
+    <ClCompile Include="Code\tiles\tile_set.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

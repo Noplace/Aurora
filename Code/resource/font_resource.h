@@ -1,10 +1,10 @@
-#ifndef GAME_ENGINE_RESOURCE_FONT_RESOURCE_H
-#define GAME_ENGINE_RESOURCE_FONT_RESOURCE_H
+#ifndef AURORA_RESOURCE_FONT_RESOURCE_H
+#define AURORA_RESOURCE_FONT_RESOURCE_H
 
 #include <VisualEssence/Code/font/bmfont/font_loader.h>
 #include "resource.h"
 
-namespace game_engine {
+namespace aurora {
 namespace resource {
 
 class ResourceManager;

@@ -5,7 +5,7 @@
 #include <string.h>
 #include "../util/string_hash.h"
 
-namespace game_engine {
+namespace aurora {
 
 class EventData {
  public:

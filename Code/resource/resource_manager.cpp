@@ -6,7 +6,7 @@
 
 
 
-namespace game_engine {
+namespace aurora {
 namespace resource {
 
 ResourceManager::ResourceManager() {

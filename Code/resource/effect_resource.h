@@ -1,10 +1,10 @@
-#ifndef GAME_ENGINE_RESOURCE_EFFECT_RESOURCE_H
-#define GAME_ENGINE_RESOURCE_EFFECT_RESOURCE_H
+#ifndef AURORA_RESOURCE_EFFECT_RESOURCE_H
+#define AURORA_RESOURCE_EFFECT_RESOURCE_H
 
 #include <VisualEssence/Code/effect/effect.h>
 #include "resource.h"
 
-namespace game_engine {
+namespace aurora {
 namespace resource {
 
 class ResourceManager;

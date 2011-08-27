@@ -1,7 +1,7 @@
 #include "../engine.h"
 #include "font_resource.h"
 
-namespace game_engine {
+namespace aurora {
 namespace resource {
   
 bool FontResource::Load() {

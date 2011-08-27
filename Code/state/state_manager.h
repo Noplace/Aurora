@@ -6,7 +6,7 @@
 #include "../component.h"
 #include "state.h"
 
-namespace game_engine {
+namespace aurora {
 
 typedef std::vector<State*> StateVector;
 
