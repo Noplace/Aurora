@@ -14,6 +14,8 @@ bool TextureResource::Load() {
     res = D3DX11CreateTextureFromMemory(manager_->engine()->gfx_context().device(),data_pointer,data_length,NULL,NULL,&texture_,NULL);
 
     if (res == S_OK) {
+      //texture_->getdesc
+      //fill struct
       manager_->engine()->gfx_context().device()->CreateShaderResourceView(texture_,NULL,&srv_);
     }
 

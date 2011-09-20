@@ -15,9 +15,9 @@ class FontResource : public Resource {
   virtual ~FontResource()  {}
   virtual bool Load();
   virtual bool Unload();
-  acGraphics::Font* font() { return font_; }
+  acGraphics::Font* font() { return &font_; }
  protected:
-  acGraphics::Font* font_;
+  acGraphics::Font font_;
 };
 
 }

@@ -4,7 +4,6 @@
 
 namespace aurora {
 
-
 Engine::Engine() : timer_(NULL),window_(NULL) {
   
 }
@@ -16,7 +15,7 @@ Engine::~Engine() {
 int Engine::Initialize() {
   memset(&timing,0,sizeof(timing));
   timer_->Calibrate();
-
+  process_manager_.AddProcess(&animation_);
   gfx_context_.Initialize();
   gfx_context_.CreateDisplay(window_);
   resource_manager.set_engine(this);
@@ -53,7 +52,6 @@ void Engine::Loop() {
   float time_span =  cycle_diff * timer_->resolution();
   
   process_manager_.Update(time_span);
-  animation_.Process(time_span);
   current_scene->Update(time_span);
 
   if (timing.render_time_span > 16.667f) {
@@ -81,6 +79,10 @@ void Engine::Loop() {
     timing.fps_counter = 0;
     timing.fps_time_span = 0;
   }
+}
+
+void Engine::HandleWindowMessages(HWND window_handle, UINT message, WPARAM wparam, LPARAM lparam) {
+  
 }
 
 }

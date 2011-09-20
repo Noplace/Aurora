@@ -31,17 +31,17 @@ graphics::shape::Vertex* Layer::CreateVertices() {
   XMFLOAT4 color =  XMFLOAT4(1,0,1,1);
   for (int i=0;i<height_-1;++i) {
     for (int j=0;j<width_-1;++j) {
-      curr->Pos = XMFLOAT2(j*tile_width_,i*tile_height_);
-      curr->Color = color;
+      curr->pos = XMFLOAT3(j*tile_width_,i*tile_height_,index_);
+      curr->color = color;
       ++curr;
-      curr->Pos = XMFLOAT2((j+1)*tile_width_,i*tile_height_);
-      curr->Color = color;
+      curr->pos = XMFLOAT3((j+1)*tile_width_,i*tile_height_,index_);
+      curr->color = color;
       ++curr;
-      curr->Pos = XMFLOAT2(j*tile_width_,(i+1)*tile_height_);
-      curr->Color = color;
+      curr->pos = XMFLOAT3(j*tile_width_,(i+1)*tile_height_,index_);
+      curr->color = color;
       ++curr;
-      curr->Pos = XMFLOAT2((j+1)*tile_width_,(i+1)*tile_height_);
-      curr->Color = color;
+      curr->pos = XMFLOAT3((j+1)*tile_width_,(i+1)*tile_height_,index_);
+      curr->color = color;
       ++curr;
     }
   }

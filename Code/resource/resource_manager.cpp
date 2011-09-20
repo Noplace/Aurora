@@ -11,6 +11,7 @@ namespace resource {
 
 ResourceManager::ResourceManager() {
   heap_ = HeapCreate(0,1024*1024*2,1024*1024*200);
+  auto_load = true;
   //HeapAlloc(heap_,
 }
 

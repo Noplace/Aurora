@@ -3,17 +3,14 @@
 
 #include <WinCore/windows/windows.h>
 #include <WinCore/timer/timer2.h>
-#include <WinCore/animation/animation.h>
 #include <WinCore/process/process_manager.h>
 #include <VisualEssence/Code/context/contextd3d11.h>
-//#include <Graphics/vertex.h>
-#include <VisualEssence/Code/buffer/vertex_buffer.h>
 #include <VisualEssence/Code/camera/camera2d.h>
 #include <VisualEssence/Code/sprite/sprite.h>
-//#include <Graphics/font/bmfont/font.h>
 #include <VisualEssence/Code/effect/effect.h>
 #include <VisualEssence/Code/font/writer.h>
 #include "component.h"
+#include "animation/animation.h"
 #include "resource/resource_manager.h"
 
 
@@ -28,12 +25,13 @@ class Engine {
   int Initialize();
   int Deinitialize();
   void Loop();
+  void HandleWindowMessages(HWND window_handle, UINT message, WPARAM wparam, LPARAM lparam);
   aurora::resource::ResourceManager resource_manager;
   utilities::Timer* timer() { return timer_; }
   void set_timer(utilities::Timer* timer) { timer_ = timer; }
   core::windows::Window* window() { return window_; }
   void set_window(core::windows::Window* window) { window_ = window; }
-  core::animation::Context& animation() { return animation_; }
+  animation::AnimationProcess& animation() { return animation_; }
   graphics::ContextD3D11& gfx_context() { return gfx_context_; }
   uint64_t total_cycles() { return timing.total_cycles; }
   float total_time() { return timing.total_cycles * timer_->resolution(); }
@@ -43,7 +41,7 @@ class Engine {
  private:
   utilities::Timer* timer_;
   core::windows::Window* window_;
-  core::animation::Context animation_;
+  animation::AnimationProcess animation_;
   graphics::ContextD3D11 gfx_context_;
   
   core::ProcessManager process_manager_;

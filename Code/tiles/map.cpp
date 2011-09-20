@@ -45,6 +45,7 @@ int Map::Deinitialize() {
 
 int Map::AddLayer() {
   Layer* layer = new Layer();
+  layer->set_index(-layer_count_);
   layers.push_back(layer);
   return layer_count_++;
 }
@@ -75,7 +76,7 @@ int Map:: BuildTransform() {
     XMLoadFloat2(&XMFLOAT2(0,0)),
     angle_,
     XMLoadFloat2(&XMFLOAT2(x_,y_)));
-
+  world_._43 = z_;
   return S_OK;
 }
 

@@ -70,6 +70,16 @@
     <None Include="README" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Code\animation\animation.h" />
+    <ClInclude Include="Code\animation\animation_process.h" />
+    <ClInclude Include="Code\animation\cubic_motion.h" />
+    <ClInclude Include="Code\animation\easing_functions.h" />
+    <ClInclude Include="Code\animation\parallel.h" />
+    <ClInclude Include="Code\animation\series.h" />
+    <ClInclude Include="Code\animation\sine_wave.h" />
+    <ClInclude Include="Code\animation\spiral.h" />
+    <ClInclude Include="Code\animation\tween.h" />
+    <ClInclude Include="Code\animation\tween_template.h" />
     <ClInclude Include="Code\component.h" />
     <ClInclude Include="Code\engine.h" />
     <ClInclude Include="Code\event\event.h" />
@@ -93,6 +103,9 @@
     <ClInclude Include="Code\state\state_manager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Code\animation\cubic_motion.cpp" />
+    <ClCompile Include="Code\animation\sine_wave.cpp" />
+    <ClCompile Include="Code\animation\spiral.cpp" />
     <ClCompile Include="Code\engine.cpp" />
     <ClCompile Include="Code\event\event.cpp" />
     <ClCompile Include="Code\event\event_manager.cpp" />

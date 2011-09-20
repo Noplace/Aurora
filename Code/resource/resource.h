@@ -32,7 +32,9 @@ class Resource  {
     data_pointer = src.data_pointer;
     data_length = src.data_length;
   }
-  virtual ~Resource()  {}
+  virtual ~Resource()  {
+    DeallocateMemory();
+  }
   int ReadWholeFile();
   int DeallocateMemory();
   virtual bool Load();

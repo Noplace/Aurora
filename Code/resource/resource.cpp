@@ -34,10 +34,16 @@ int Resource::ReadWholeFile() {
 }
 
 int Resource::DeallocateMemory() {
-  if (HeapFree(manager_->heap(),0,data_pointer)==0)
-    return S_OK;
-  else
+  if (data_pointer == NULL)
     return S_FALSE;
+  if (HeapFree(manager_->heap(),0,data_pointer)!=0) {
+    data_pointer = NULL;
+    return S_OK;
+  }
+  else {
+    //int a = GetLastError();
+    return S_FALSE;
+  }
 }
 
 bool Resource::Load() {

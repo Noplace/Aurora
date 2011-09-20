@@ -25,6 +25,7 @@ class Layer {
   void set_buffer_offset(int buffer_offset) { buffer_offset_ = buffer_offset; }
   bool show() { return show_; }
   bool set_show(bool show) { show_ = show; }
+  void set_index(int index) { index_ = index; }
  private:
   Map* map_;
   int width_;
@@ -33,6 +34,7 @@ class Layer {
   int tile_height_;
   int buffer_offset_;
   int vertex_count_;
+  int index_;
   Tile* tile_list;
   bool show_;
   //Buffer<gl_c4ub_v2f>* vbo;

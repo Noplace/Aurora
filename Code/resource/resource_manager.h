@@ -25,7 +25,8 @@ class ResourceManager : public Component {
     for (i = resource_list_.begin(); i!= resource_list_.end(); ++i) {
       T* res = (T*)(*i);
       if (res->uid() == uid) {
-        res->Load();
+        if (auto_load == true)
+          res->Load();
         return res;
       }
     }
@@ -41,6 +42,7 @@ class ResourceManager : public Component {
   std::vector<Resource*>  resource_list_;
   std::map<int,std::vector<Resource*> > scope_list_;
   HANDLE heap_;
+  bool auto_load;
 };
 
 }
