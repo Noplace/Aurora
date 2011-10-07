@@ -12,7 +12,9 @@
 #include "component.h"
 #include "animation/animation.h"
 #include "resource/resource_manager.h"
-
+#include "input/input.h"
+#include "process/engine_process.h"
+#include "gui/gui.h"
 
 namespace aurora {
 
@@ -37,13 +39,14 @@ class Engine {
   float total_time() { return timing.total_cycles * timer_->resolution(); }
   GameView* current_scene;
   core::ProcessManager& process_manager() { return process_manager_; }
+  input::Input& input() { return input_; }
   uint32_t fps() { return timing.fps; }
  private:
   utilities::Timer* timer_;
   core::windows::Window* window_;
   animation::AnimationProcess animation_;
   graphics::ContextD3D11 gfx_context_;
-  
+  input::Input input_;
   core::ProcessManager process_manager_;
   struct {
     uint64_t current_cycles;

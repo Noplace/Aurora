@@ -50,7 +50,7 @@ void Engine::Loop() {
   timing.current_cycles = timer_->GetCurrentCycles();
   uint64_t cycle_diff = (timing.current_cycles - timing.prev_cycles);
   float time_span =  cycle_diff * timer_->resolution();
-  
+  input_.Poll();
   process_manager_.Update(time_span);
   current_scene->Update(time_span);
 

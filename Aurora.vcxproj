@@ -84,6 +84,13 @@
     <ClInclude Include="Code\engine.h" />
     <ClInclude Include="Code\event\event.h" />
     <ClInclude Include="Code\event\event_manager.h" />
+    <ClInclude Include="Code\gui\element.h" />
+    <ClInclude Include="Code\gui\gui.h" />
+    <ClInclude Include="Code\gui\menu.h" />
+    <ClInclude Include="Code\input\controller.h" />
+    <ClInclude Include="Code\input\input.h" />
+    <ClInclude Include="Code\input\xbox360_controller.h" />
+    <ClInclude Include="Code\process\engine_process.h" />
     <ClInclude Include="Code\resource\tmx_resource.h" />
     <ClInclude Include="Code\tiles\layer.h" />
     <ClInclude Include="Code\tiles\map.h" />
@@ -109,6 +116,10 @@
     <ClCompile Include="Code\engine.cpp" />
     <ClCompile Include="Code\event\event.cpp" />
     <ClCompile Include="Code\event\event_manager.cpp" />
+    <ClCompile Include="Code\gui\gui.cpp" />
+    <ClCompile Include="Code\gui\menu.cpp" />
+    <ClCompile Include="Code\input\input.cpp" />
+    <ClCompile Include="Code\input\xbox360_controller.cpp" />
     <ClCompile Include="Code\resource\font_resource.cpp" />
     <ClCompile Include="Code\resource\resource.cpp" />
     <ClCompile Include="Code\resource\resource_manager.cpp" />
