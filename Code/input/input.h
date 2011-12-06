@@ -13,6 +13,7 @@ class Input {
   ~Input();
   void Poll();
   Xbox360Controller controller1;
+  bool keyboard_buffer[256];
 };
 
 }

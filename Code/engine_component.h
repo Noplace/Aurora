@@ -7,9 +7,9 @@ namespace aurora {
 
 class Engine;
 
-class Component {
+class EngineComponent {
  public:
-  Component() : engine_(0), start_time_(0ULL) { }
+  EngineComponent() : engine_(0), start_time_(0ULL) { }
   Engine* engine() { return engine_; }
   void set_engine(Engine* engine) { engine_ = engine; }
   uint64_t start_time() { return start_time_; }

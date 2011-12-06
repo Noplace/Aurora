@@ -8,7 +8,7 @@ namespace aurora {
 namespace input {
 
 Input::Input() {
-  
+  memset(keyboard_buffer,0,sizeof(keyboard_buffer));
 }
 
 Input::~Input() {

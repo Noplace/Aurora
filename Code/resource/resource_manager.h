@@ -4,7 +4,7 @@
 #include <Windows.h>
 #include <map>
 #include <vector>
-#include "../component.h"
+#include "../engine_component.h"
 #include "resource.h"
 #include "font_resource.h"
 #include "texture_resource.h"
@@ -13,7 +13,7 @@
 namespace aurora {
 namespace resource {
 
-class ResourceManager : public Component {
+class ResourceManager : public EngineComponent {
  public:
   ResourceManager();
   ~ResourceManager();
@@ -35,6 +35,23 @@ class ResourceManager : public Component {
   }
   Resource* GetResourceById(uint32_t uid) {
     return GetResourceById<Resource>(uid);
+  }
+  template<class T>
+  T* GetResourceByFilename(const char* filename) {
+    std::vector<Resource*>::iterator i;
+    for (i = resource_list_.begin(); i!= resource_list_.end(); ++i) {
+      T* res = (T*)(*i);
+      if (strcmp(res->filename(),filename)==0) {
+        if (auto_load == true)
+          res->Load();
+        return res;
+      }
+    }
+
+    return NULL;
+  }
+  Resource* GetResourceByFilename(const char* filename) {
+    return GetResourceByFilename<Resource>(filename);
   }
   HANDLE heap() { return heap_; }
  private:

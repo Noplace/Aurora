@@ -1,5 +1,4 @@
-#include "state.h"
-#include "state_manager.h"
+#include "../aurora.h"
 
 namespace aurora {
 

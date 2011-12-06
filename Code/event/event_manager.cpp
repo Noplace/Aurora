@@ -1,6 +1,6 @@
+#include "../aurora.h"
 #include "event.h"
 #include "event_manager.h"
-#include "../engine.h"
 
 namespace aurora {
 

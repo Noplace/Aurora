@@ -89,7 +89,10 @@ bool ResourceManager::LoadXml(char* filename) {
           }
 
           if (!strcmp(attr->name(),"filename")) {
-            resource->set_filename(attr->value());
+            char* filename = strrchr(attr->value(),'\\');
+            ++filename;
+            resource->set_filepath(attr->value());
+            resource->set_filename(filename);
           }
 
           if (!strcmp(attr->name(),"type")) {

@@ -7,21 +7,13 @@
 
 namespace aurora {
 
-class GameView : public Component {
+class GameView : public EngineComponent {
  public:
   GameView() { }
   virtual ~GameView() { }
-  virtual int Initialize(Engine* engine) {
-    int hr = S_OK;
-    set_engine(engine);
-    hr = camera_.Initialize(&engine->gfx_context());
-    return hr;
-  }
-  virtual int Deinitialize() {
-    int hr = S_OK;
-    hr = camera_.Deinitialize();
-    return hr;
-  }
+  virtual int Initialize(Engine* engine);
+  virtual int Deinitialize();
+  virtual void UpdatePhysics(float) = 0;
   virtual void Update(float) = 0;
   virtual void Draw() = 0;
  protected:

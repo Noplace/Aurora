@@ -1,4 +1,4 @@
-#include "../engine.h"
+#include "../aurora.h"
 #include "font_resource.h"
 
 namespace aurora {
@@ -7,7 +7,7 @@ namespace resource {
 bool FontResource::Load() {
   if (loaded_ == true) 
     return false;
-  acGraphics::FontLoaderBinaryFormat font_loader(filename());
+  acGraphics::FontLoaderBinaryFormat font_loader(filepath());
   font_loader.Initialize(&manager_->engine()->gfx_context());
   font_loader.LoadFont(&font_);
   font_loader.Deinitialize();

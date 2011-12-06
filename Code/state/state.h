@@ -13,8 +13,9 @@ class State : public StateInterface {
   State() : id_(0),state_manager_(NULL) { };
   State(int id) : id_(id) { };
   virtual void OnInput() { }
-  virtual void OnUpdate() { }
-  virtual void OnRender() { }
+  virtual void OnUpdatePhysics(float dt) { }
+  virtual void OnUpdate(float dt) { }
+  virtual void OnDraw() { }
   virtual void OnStateEnter() { }
   virtual void OnStateExit() { }
   int id() { return id_; }

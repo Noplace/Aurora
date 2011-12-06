@@ -1,24 +1,7 @@
 #ifndef AURORA_ENGINE_H
 #define AURORA_ENGINE_H
 
-#include <WinCore/windows/windows.h>
-#include <WinCore/timer/timer2.h>
-#include <WinCore/process/process_manager.h>
-#include <VisualEssence/Code/context/contextd3d11.h>
-#include <VisualEssence/Code/camera/camera2d.h>
-#include <VisualEssence/Code/sprite/sprite.h>
-#include <VisualEssence/Code/effect/effect.h>
-#include <VisualEssence/Code/font/writer.h>
-#include "component.h"
-#include "animation/animation.h"
-#include "resource/resource_manager.h"
-#include "input/input.h"
-#include "process/engine_process.h"
-#include "gui/gui.h"
-
 namespace aurora {
-
-class GameView;
 
 class Engine {
  public:
@@ -56,6 +39,7 @@ class Engine {
     uint32_t fps;
     float render_time_span;
     float fps_time_span;
+    float span_accumulator;
   } timing;
 
 };

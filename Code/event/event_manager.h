@@ -5,7 +5,7 @@
 #include <vector>
 #include <queue>
 #include <map>
-#include "../component.h"
+#include "../engine_component.h"
 
 
 namespace aurora {
@@ -19,7 +19,7 @@ typedef std::pair<EventHash, EventListenerList> EventListenerMapEntry;
 typedef std::pair<EventHash, EventData> EventQueueEntry;
 
 
-class EventManager : public Component {
+class EventManager : public EngineComponent {
  public:
   EventManager();
   ~EventManager();

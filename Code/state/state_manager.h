@@ -3,21 +3,26 @@
 
 
 #include <vector>
-#include "../component.h"
 #include "state.h"
 
 namespace aurora {
 
 typedef std::vector<State*> StateVector;
 
-class StateManager : public Component {
+class StateManager : public GameView {
  public:
   StateManager() : current_state_(NULL) {  }
-  int AddState(State*);
-  int RemoveState(int id);
-  State* GetStateById(int id);
-  int ChangeState(int id);
-  State* current_state() { return current_state_; }
+  virtual ~StateManager() { }
+  virtual int Initialize(Engine* engine);
+  virtual int Deinitialize();
+  virtual int AddState(State*);
+  virtual int RemoveState(int id);
+  virtual State* GetStateById(int id);
+  virtual int ChangeState(int id);
+  virtual State* current_state() { return current_state_; }
+  virtual void UpdatePhysics(float dt);
+  virtual void Update(float dt);
+  virtual void Draw();
  private:
   StateVector states;
   State* current_state_;

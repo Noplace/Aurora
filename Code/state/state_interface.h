@@ -1,15 +1,16 @@
 #ifndef GAME_STATE_INTERFACE_H
 #define GAME_STATE_INTERFACE_H
 
-#include "../component.h"
+#include "../engine_component.h"
 
 namespace aurora {
 
-class StateInterface : public Component {
+class StateInterface : public EngineComponent {
  public:
   virtual void OnInput() = 0;
-  virtual void OnUpdate() = 0;
-  virtual void OnRender() = 0;
+  virtual void OnUpdatePhysics(float) = 0;
+  virtual void OnUpdate(float) = 0;
+  virtual void OnDraw() = 0;
   virtual void OnStateEnter() = 0;
   virtual void OnStateExit() = 0;
  protected:

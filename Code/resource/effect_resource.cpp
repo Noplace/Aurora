@@ -1,4 +1,4 @@
-#include "../engine.h"
+#include "../aurora.h"
 #include "effect_resource.h"
 
 namespace aurora {

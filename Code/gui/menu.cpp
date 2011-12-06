@@ -20,7 +20,9 @@ int Menu::Draw() {
 
 void Menu::AddItem(char* caption) {
   strcpy(list_[item_count].caption,caption);
+   // writer_.PrepareWrite(512);
   //writer_.WriteBox(list_[item_count].caption,
+  //copy vertices
   item_count++;
 }
 

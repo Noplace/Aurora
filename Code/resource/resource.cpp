@@ -13,7 +13,7 @@ int Resource::ReadWholeFile() {
   if (type_ != 4) {
     mode |= std::ios::binary;
   }
-  std::ifstream ifs( filename_,mode);
+  std::ifstream ifs( filepath_,mode);
   if (type_ != 4) {
     ifs.seekg(0,std::ios::end);
     data_length = ifs.tellg();
@@ -71,8 +71,13 @@ bool Resource::Unload() {
 }
 
 void Resource::set_filename(const char* filename) { 
-  strcpy_s<1024>(filename_,filename); 
+  strcpy_s<256>(filename_,filename); 
 }
+
+void Resource::set_filepath(const char* filepath) { 
+  strcpy_s<1024>(filepath_,filepath); 
+}
+
 
 }
 }

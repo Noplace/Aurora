@@ -1,4 +1,4 @@
-#include "../engine.h"
+#include "../aurora.h"
 #include "gui.h"
 
 namespace aurora {

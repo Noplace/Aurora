@@ -24,9 +24,6 @@
     <ClInclude Include="Code\game_view.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Code\component.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Code\resource\resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -132,6 +129,9 @@
     <ClInclude Include="Code\process\engine_process.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Code\engine_component.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\engine.cpp">
@@ -195,6 +195,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Code\gui\gui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\game_view.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

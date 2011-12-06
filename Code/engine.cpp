@@ -1,5 +1,4 @@
 #include "aurora.h"
-#include "game_view.h"
 
 
 namespace aurora {
@@ -46,13 +45,22 @@ int Engine::Deinitialize() {
 }
 
 void Engine::Loop() {
- 
+  const float dt =  16.667f;
   timing.current_cycles = timer_->GetCurrentCycles();
   uint64_t cycle_diff = (timing.current_cycles - timing.prev_cycles);
   float time_span =  cycle_diff * timer_->resolution();
+  if (time_span > 250.0f) //clamping time
+    time_span = 250.0f;
   input_.Poll();
+
   process_manager_.Update(time_span);
-  current_scene->Update(time_span);
+
+  timing.span_accumulator += time_span;
+  while (timing.span_accumulator >= dt) {
+    timing.span_accumulator -= dt;
+    current_scene->UpdatePhysics(dt);
+  }
+  current_scene->Update(timing.span_accumulator/dt);
 
   if (timing.render_time_span > 16.667f) {
 
@@ -82,7 +90,12 @@ void Engine::Loop() {
 }
 
 void Engine::HandleWindowMessages(HWND window_handle, UINT message, WPARAM wparam, LPARAM lparam) {
-  
+  if (message == WM_KEYDOWN) {
+    input_.keyboard_buffer[wparam&0xff] = true;
+  }
+  if (message == WM_KEYUP) {
+    input_.keyboard_buffer[wparam&0xff] = false;
+  }
 }
 
 }
