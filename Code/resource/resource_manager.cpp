@@ -1,7 +1,6 @@
-#include <Windows.h>
 #include <fstream>
 #include <WinCore/xml/rapidxml/rapidxml.hpp>
-#include "resource_manager.h"
+#include "../aurora.h"
 
 
 

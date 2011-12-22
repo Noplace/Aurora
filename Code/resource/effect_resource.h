@@ -1,9 +1,6 @@
 #ifndef AURORA_RESOURCE_EFFECT_RESOURCE_H
 #define AURORA_RESOURCE_EFFECT_RESOURCE_H
 
-#include <VisualEssence/Code/effect/effect.h>
-#include "resource.h"
-
 namespace aurora {
 namespace resource {
 

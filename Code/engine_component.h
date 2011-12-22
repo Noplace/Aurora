@@ -1,7 +1,6 @@
 #ifndef AURORA_OBJECT_H
 #define AURORA_OBJECT_H
 
-#include <WinCore/types.h>
 
 namespace aurora {
 

@@ -1,14 +1,7 @@
 #ifndef AURORA_RESOURCE_RESOURCE_MANAGER_H
 #define AURORA_RESOURCE_RESOURCE_MANAGER_H
 
-#include <Windows.h>
-#include <map>
-#include <vector>
-#include "../engine_component.h"
-#include "resource.h"
-#include "font_resource.h"
-#include "texture_resource.h"
-#include "effect_resource.h"
+#include "../aurora.h"
 
 namespace aurora {
 namespace resource {

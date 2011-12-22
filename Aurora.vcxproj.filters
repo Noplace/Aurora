@@ -48,28 +48,7 @@
     <ClInclude Include="Code\resource\effect_resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Code\event\event.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\event\event_manager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Code\util\string_hash.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\tiles\tiles.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\tiles\tile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\tiles\tile_set.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\tiles\layer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\tiles\map.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Code\aurora.h">
@@ -117,19 +96,13 @@
     <ClInclude Include="Code\input\xbox360_controller.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Code\gui\menu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\gui\element.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\gui\gui.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Code\process\engine_process.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Code\engine_component.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\animation\custom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -158,21 +131,6 @@
     <ClCompile Include="Code\resource\effect_resource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\event\event.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\event\event_manager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\tiles\tile_set.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\tiles\layer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\tiles\map.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Code\resource\tmx_resource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -189,12 +147,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Code\input\xbox360_controller.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\gui\menu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\gui\gui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Code\game_view.cpp">

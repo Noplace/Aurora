@@ -1,8 +1,6 @@
 #ifndef AURORA_GUI_GUI_H
 #define AURORA_GUI_GUI_H
 
-#include <vector>
-#include <VisualEssence/Code/context/context.h>
 #include "../process/engine_process.h"
 #include "element.h"
 

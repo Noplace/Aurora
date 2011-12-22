@@ -18,7 +18,7 @@ inline float in_out_cubic(float t,float b,float c,float d) {
   float ts=t*t;
 	float tc=ts*t;
   float factor = (-2*tc + 3*ts);
-	return (1-factor)*b+c*factor;
+	return b+c*factor;
 }
 
 inline float out_quintic(float t,float b,float c,float d) {
@@ -26,7 +26,7 @@ inline float out_quintic(float t,float b,float c,float d) {
 	float ts=t*t;
 	float tc=ts*t;
   float factor = (tc*ts + -5*ts*ts + 10*tc + -10*ts + 5*t);
-	return (1-factor)*b+c*factor;
+	return b+c*factor;
 }
 
 }

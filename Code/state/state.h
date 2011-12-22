@@ -10,11 +10,12 @@ class StateManager;
 
 class State : public StateInterface {
  public:
-  State() : id_(0),state_manager_(NULL) { };
-  State(int id) : id_(id) { };
+  State() : id_(0),state_manager_(NULL) { }
+  State(int id) : id_(id),state_manager_(NULL) { }
+  virtual ~State() { }
   virtual void OnInput() { }
-  virtual void OnUpdatePhysics(float dt) { }
   virtual void OnUpdate(float dt) { }
+  virtual void OnInterpolate(float dt) { }
   virtual void OnDraw() { }
   virtual void OnStateEnter() { }
   virtual void OnStateExit() { }

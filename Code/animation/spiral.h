@@ -18,7 +18,7 @@ class Spiral : public Tween {
   void set_start_theta(float start_theta) { start_theta_ = start_theta; }
  private:
   float* value_ptr() { return 0; }
-  void set_value_ptr(float* value_ptr) {  }
+  Spiral& set_value_ptr(float* value_ptr) {  return *this;  }
   float amplitude_;
   float max_theta_;
   float start_theta_;

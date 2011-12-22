@@ -1,8 +1,6 @@
 #ifndef AURORA_RESOURCE_RESOURCE_H
 #define AURORA_RESOURCE_RESOURCE_H
 
-#include <WinCore/types.h>
-
 namespace aurora {
 namespace resource {
 

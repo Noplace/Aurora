@@ -56,7 +56,7 @@ class Parallel : public Tween {
   }
 
   DefaultTimeType max_time() { return max_time_; }
-  void set_max_time(DefaultTimeType max_time) {  }
+  Parallel& set_max_time(DefaultTimeType max_time) { return *this; }
   bool running() { return running_; }
 
   void AddTween(Tween* tween) {

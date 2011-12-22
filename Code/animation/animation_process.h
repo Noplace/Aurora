@@ -19,10 +19,13 @@ class AnimationProcess : public core::Process {
       tween_ptr =  (*i);
       tween_ptr->EncapsulatedProcess(dt);
     }
-    //std::remove_if
   }
 
-// private:
+  void AddAnimation(Tween* tween) {
+    tween->set_context(this);
+    tween_list.push_back(tween);
+  }
+ private:
   TweenVector tween_list;
 };
 

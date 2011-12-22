@@ -2,9 +2,6 @@
 #define GAME_STATE_MANAGER_H
 
 
-#include <vector>
-#include "state.h"
-
 namespace aurora {
 
 typedef std::vector<State*> StateVector;
@@ -20,8 +17,9 @@ class StateManager : public GameView {
   virtual State* GetStateById(int id);
   virtual int ChangeState(int id);
   virtual State* current_state() { return current_state_; }
-  virtual void UpdatePhysics(float dt);
+  virtual void Input();
   virtual void Update(float dt);
+  virtual void Interpolate(float dt);
   virtual void Draw();
  private:
   StateVector states;

@@ -60,15 +60,21 @@ int StateManager::ChangeState(int id) {
   return 0;
 }
 
-void StateManager::UpdatePhysics(float dt) {
+void StateManager::Input() {
   if (current_state_ != NULL) {
-    current_state_->OnUpdatePhysics(dt);
+    current_state_->OnInput();
   }
 }
 
 void StateManager::Update(float dt) {
   if (current_state_ != NULL) {
     current_state_->OnUpdate(dt);
+  }
+}
+
+void StateManager::Interpolate(float dt) {
+  if (current_state_ != NULL) {
+    current_state_->OnInterpolate(dt);
   }
 }
 

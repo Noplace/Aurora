@@ -1,5 +1,4 @@
 #include "../aurora.h"
-#include "font_resource.h"
 
 namespace aurora {
 namespace resource {

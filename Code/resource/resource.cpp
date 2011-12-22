@@ -1,7 +1,5 @@
-#include <string.h>
 #include <fstream>
-#include "resource.h"
-#include "resource_manager.h"
+#include "../aurora.h"
 
 
 namespace aurora {

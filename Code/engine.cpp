@@ -15,10 +15,11 @@ int Engine::Initialize() {
   memset(&timing,0,sizeof(timing));
   timer_->Calibrate();
   process_manager_.AddProcess(&animation_);
-  gfx_context_.Initialize();
-  gfx_context_.CreateDisplay(window_);
+  gfx_context_ = new graphics::ContextD3D11();
+  gfx_context_->Initialize();
+  gfx_context_->CreateDisplay(window_);
   resource_manager.set_engine(this);
-  resource_manager.LoadXml("Content\\test.xml");
+  
   
   /*camera2d.Initialize(&gfx_context_);
   camera2d.SetupDisplay();
@@ -40,7 +41,8 @@ int Engine::Initialize() {
 int Engine::Deinitialize() {
   // if( g_pImmediateContext ) g_pImmediateContext->ClearState();
   resource_manager.UnloadAll();
-  gfx_context_.Deinitialize();
+  gfx_context_->Deinitialize();
+  delete gfx_context_;
   return S_OK;
 }
 
@@ -51,16 +53,19 @@ void Engine::Loop() {
   float time_span =  cycle_diff * timer_->resolution();
   if (time_span > 250.0f) //clamping time
     time_span = 250.0f;
-  input_.Poll();
+  //input_.Poll();
 
-  process_manager_.Update(time_span);
-
+  //process_manager_.Update(time_span);
+  
   timing.span_accumulator += time_span;
   while (timing.span_accumulator >= dt) {
     timing.span_accumulator -= dt;
-    current_scene->UpdatePhysics(dt);
+    process_manager_.Update(dt);
+    current_scene->Update(dt);
+    timing.ups++;
   }
-  current_scene->Update(timing.span_accumulator/dt);
+ 
+  current_scene->Interpolate(timing.span_accumulator/dt);
 
   if (timing.render_time_span > 16.667f) {
 
@@ -68,11 +73,11 @@ void Engine::Loop() {
     // Clear the back buffer
     //
     float ClearColor[4] = { 0.0f, 0.125f, 0.3f, 1.0f }; // red, green, blue, alpha
-    gfx_context_.ClearTarget();
+    gfx_context_->ClearTarget();
 
     current_scene->Draw();
 
-    gfx_context_.Render();
+    gfx_context_->Render();
 
     timing.render_time_span = 0;
   }
@@ -92,9 +97,11 @@ void Engine::Loop() {
 void Engine::HandleWindowMessages(HWND window_handle, UINT message, WPARAM wparam, LPARAM lparam) {
   if (message == WM_KEYDOWN) {
     input_.keyboard_buffer[wparam&0xff] = true;
+    current_scene->Input();
   }
   if (message == WM_KEYUP) {
     input_.keyboard_buffer[wparam&0xff] = false;
+    current_scene->Input();
   }
 }
 

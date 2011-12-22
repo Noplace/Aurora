@@ -17,7 +17,7 @@ class Engine {
   core::windows::Window* window() { return window_; }
   void set_window(core::windows::Window* window) { window_ = window; }
   animation::AnimationProcess& animation() { return animation_; }
-  graphics::ContextD3D11& gfx_context() { return gfx_context_; }
+  graphics::Context& gfx_context() { return *gfx_context_; }
   uint64_t total_cycles() { return timing.total_cycles; }
   float total_time() { return timing.total_cycles * timer_->resolution(); }
   GameView* current_scene;
@@ -28,7 +28,7 @@ class Engine {
   utilities::Timer* timer_;
   core::windows::Window* window_;
   animation::AnimationProcess animation_;
-  graphics::ContextD3D11 gfx_context_;
+  graphics::Context* gfx_context_;
   input::Input input_;
   core::ProcessManager process_manager_;
   struct {
@@ -36,10 +36,13 @@ class Engine {
     uint64_t prev_cycles;
     uint64_t total_cycles;
     uint32_t fps_counter;
+    uint32_t ups_counter;
     uint32_t fps;
+    uint32_t ups;
     float render_time_span;
     float fps_time_span;
     float span_accumulator;
+
   } timing;
 
 };

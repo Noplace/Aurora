@@ -1,5 +1,4 @@
 #include "../aurora.h"
-#include "texture_resource.h"
 
 namespace aurora {
 namespace resource {
@@ -10,13 +9,12 @@ bool TextureResource::Load() {
 
   int res = Resource::ReadWholeFile();
   if (res == S_OK) {
+    auto gfx = &manager_->engine()->gfx_context();
     //res = D3DX11CreateShaderResourceViewFromMemory(manager_->engine()->gfx_context().device(),data_pointer,data_length,NULL,NULL,&srv_,NULL);
-    res = D3DX11CreateTextureFromMemory(manager_->engine()->gfx_context().device(),data_pointer,data_length,NULL,NULL,&texture_,NULL);
-
+    //res = D3DX11CreateTextureFromMemory(manager_->engine()->gfx_context().device(),data_pointer,data_length,NULL,NULL,&texture_,NULL);
+    res = gfx->CreateTextureFromMemory(data_pointer,data_length,texture_);
     if (res == S_OK) {
-      //texture_->getdesc
-      //fill struct
-      manager_->engine()->gfx_context().device()->CreateShaderResourceView(texture_,NULL,&srv_);
+      gfx->CreateResourceView(texture_,srv_);
     }
 
     Resource::DeallocateMemory();
@@ -31,9 +29,8 @@ bool TextureResource::Load() {
 bool TextureResource::Unload() {
   if (loaded_ == false) 
     return false;
-
-  SafeRelease(&srv_);
-  SafeRelease(&texture_);
+  manager_->engine()->gfx_context().DestroyResourceView(srv_);
+  manager_->engine()->gfx_context().DestroyTexture(texture_);
   loaded_ = false;
   return S_OK;
 }

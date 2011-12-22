@@ -1,5 +1,4 @@
 #include "../aurora.h"
-#include "gui.h"
 
 namespace aurora {
 namespace gui {

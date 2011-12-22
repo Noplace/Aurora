@@ -11,8 +11,8 @@ class Context;
 class CubicMotion : public Tween {
  public:
   void Process(DefaultTimeType delta);
-  void set_from(float from) { from_ = from; }
-  void set_to(float to) { to_ = to; }
+  CubicMotion& set_from(float from) { from_ = from; return *this; }
+  CubicMotion& set_to(float to) { to_ = to; return *this; }
  private:
   float from_;
   float to_;

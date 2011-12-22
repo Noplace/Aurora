@@ -82,7 +82,7 @@ class Series : public Tween {
   //int current_time() { return current_time_; }
   //void  set_current_time(int current_time) { current_time_ = current_time; }
   DefaultTimeType max_time() { return max_time_; }
-  void  set_max_time(DefaultTimeType max_time) {  }
+  Series&  set_max_time(DefaultTimeType max_time) { return *this; }
   bool  running() { return running_; }
 
   void AddTween(Tween* tween) {

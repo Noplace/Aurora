@@ -45,20 +45,20 @@ class TweenTemplate {
     }
   }
   virtual ValueType* value_ptr() { return value_ptr_; }
-  virtual void set_value_ptr(ValueType* value_ptr) { value_ptr_ = value_ptr; }
+  virtual TweenTemplate& set_value_ptr(ValueType* value_ptr) { value_ptr_ = value_ptr; return *this; }
   virtual TimeType current_time() { return current_play_time_+delay_counter_; }
-  virtual void set_current_time(TimeType current_time) { delay_counter_ = 0; current_play_time_ = 0; }
+  virtual TweenTemplate& set_current_time(TimeType current_time) { delay_counter_ = 0; current_play_time_ = 0; return *this; }
   virtual TimeType total_time() { return max_time_+delay_time_; }
-  virtual void set_max_time(TimeType max_time) { max_time_ = max_time; }
+  virtual TweenTemplate& set_max_time(TimeType max_time) { max_time_ = max_time; return *this; }
   virtual TimeType delay_time() { return delay_time_; }
-  virtual void set_delay_time(TimeType delay_time) { delay_time_ = delay_time; }
+  virtual TweenTemplate& set_delay_time(TimeType delay_time) { delay_time_ = delay_time; return *this; }
   virtual TimeType delay_counter() { return delay_counter_; }
   virtual bool running() { return running_; }
   virtual int repeat_count() { return repeat_count_; }
-  virtual void set_repeat_count(int repeat_count) { repeat_count_ = repeat_count; }
+  virtual TweenTemplate& set_repeat_count(int repeat_count) { repeat_count_ = repeat_count; return *this; }
 
   AnimationProcess* context() { context_; }
-  void set_context(AnimationProcess* context) { context_ = context; }
+  TweenTemplate& set_context(AnimationProcess* context) { context_ = context; return *this; }
   bool ran_once;
  protected:
   ValueType* value_ptr_;

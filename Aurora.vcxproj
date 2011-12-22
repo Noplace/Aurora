@@ -73,6 +73,7 @@
     <ClInclude Include="Code\animation\animation.h" />
     <ClInclude Include="Code\animation\animation_process.h" />
     <ClInclude Include="Code\animation\cubic_motion.h" />
+    <ClInclude Include="Code\animation\custom.h" />
     <ClInclude Include="Code\animation\easing_functions.h" />
     <ClInclude Include="Code\animation\parallel.h" />
     <ClInclude Include="Code\animation\series.h" />
@@ -82,21 +83,11 @@
     <ClInclude Include="Code\animation\tween_template.h" />
     <ClInclude Include="Code\engine_component.h" />
     <ClInclude Include="Code\engine.h" />
-    <ClInclude Include="Code\event\event.h" />
-    <ClInclude Include="Code\event\event_manager.h" />
-    <ClInclude Include="Code\gui\element.h" />
-    <ClInclude Include="Code\gui\gui.h" />
-    <ClInclude Include="Code\gui\menu.h" />
     <ClInclude Include="Code\input\controller.h" />
     <ClInclude Include="Code\input\input.h" />
     <ClInclude Include="Code\input\xbox360_controller.h" />
     <ClInclude Include="Code\process\engine_process.h" />
     <ClInclude Include="Code\resource\tmx_resource.h" />
-    <ClInclude Include="Code\tiles\layer.h" />
-    <ClInclude Include="Code\tiles\map.h" />
-    <ClInclude Include="Code\tiles\tile.h" />
-    <ClInclude Include="Code\tiles\tiles.h" />
-    <ClInclude Include="Code\tiles\tile_set.h" />
     <ClInclude Include="Code\util\string_hash.h" />
     <ClInclude Include="Code\aurora.h" />
     <ClInclude Include="Code\game_view.h" />
@@ -114,11 +105,7 @@
     <ClCompile Include="Code\animation\sine_wave.cpp" />
     <ClCompile Include="Code\animation\spiral.cpp" />
     <ClCompile Include="Code\engine.cpp" />
-    <ClCompile Include="Code\event\event.cpp" />
-    <ClCompile Include="Code\event\event_manager.cpp" />
     <ClCompile Include="Code\game_view.cpp" />
-    <ClCompile Include="Code\gui\gui.cpp" />
-    <ClCompile Include="Code\gui\menu.cpp" />
     <ClCompile Include="Code\input\input.cpp" />
     <ClCompile Include="Code\input\xbox360_controller.cpp" />
     <ClCompile Include="Code\resource\font_resource.cpp" />
@@ -129,9 +116,6 @@
     <ClCompile Include="Code\resource\tmx_resource.cpp" />
     <ClCompile Include="Code\state\state.cpp" />
     <ClCompile Include="Code\state\state_manager.cpp" />
-    <ClCompile Include="Code\tiles\layer.cpp" />
-    <ClCompile Include="Code\tiles\map.cpp" />
-    <ClCompile Include="Code\tiles\tile_set.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
