@@ -7,6 +7,7 @@
 #include <string.h>
 #include <WinCore/types.h>
 #include <WinCore/windows/windows.h>
+#include <WinCore/log/log_manager.h>
 #include <WinCore/timer/timer2.h>
 #include <WinCore/process/process.h>
 #include <WinCore/process/process_manager.h>

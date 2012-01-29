@@ -5,6 +5,7 @@ namespace aurora {
 
 class Engine {
  public:
+  core::LogManager log;
   Engine();
   ~Engine();
   int Initialize();

@@ -3,7 +3,7 @@
 
 namespace aurora {
 
-Engine::Engine() : timer_(NULL),window_(NULL) {
+Engine::Engine() :gfx_context_(nullptr), timer_(nullptr),window_(nullptr) {
   
 }
 
@@ -16,8 +16,17 @@ int Engine::Initialize() {
   timer_->Calibrate();
   process_manager_.AddProcess(&animation_);
   gfx_context_ = new graphics::ContextD3D11();
-  gfx_context_->Initialize();
-  gfx_context_->CreateDisplay(window_);
+  
+  auto hr = gfx_context_->Initialize();
+  if (hr != S_OK) {
+    log.Channel("Engine").Log("ERROR: Engine::Initialize - gfx_context_->Initialize failed, ERROR Code = %08x\n",hr);
+    return hr;
+  }
+  hr = gfx_context_->CreateDisplay(window_);
+  if (hr != S_OK) {
+    log.Channel("Engine").Log("ERROR: Engine::Initialize - gfx_context_->CreateDisplay failed, ERROR Code = %08x\n",hr);
+    return hr;
+  }
   resource_manager.set_engine(this);
   
   
@@ -31,9 +40,7 @@ int Engine::Initialize() {
 
 
   */
-  
-  HRESULT hr = S_OK;
-  
+ 
   timing.prev_cycles = timer_->GetCurrentCycles();
   return hr;
 }
@@ -41,8 +48,10 @@ int Engine::Initialize() {
 int Engine::Deinitialize() {
   // if( g_pImmediateContext ) g_pImmediateContext->ClearState();
   resource_manager.UnloadAll();
-  gfx_context_->Deinitialize();
-  delete gfx_context_;
+  if (gfx_context_!=nullptr) {
+    gfx_context_->Deinitialize();
+    delete gfx_context_;
+  }
   return S_OK;
 }
 
