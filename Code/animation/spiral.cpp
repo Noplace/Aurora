@@ -5,7 +5,7 @@
 namespace aurora {
 namespace animation {
 
-Spiral::Spiral() : amplitude_(1) ,start_theta_(0), max_theta_(M_PI * 6) {
+Spiral::Spiral() : amplitude_(1.0f) ,start_theta_(0.0f), max_theta_(M_PI * 6.0f) {
 
 }
 

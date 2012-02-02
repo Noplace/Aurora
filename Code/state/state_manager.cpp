@@ -1,3 +1,4 @@
+#define HAS_EXCEPTIONS 0
 #include "../aurora.h"
 
 
