@@ -27,16 +27,16 @@ class Xbox360Controller : public Controller {
   float RightThumbMagnitude();
   void Handle(void* data);
  protected:
-  float CalculateMagnitude(sint16_t x,sint16_t y);
-  float CalculateDirection(sint16_t x,sint16_t y);
+  float CalculateMagnitude(int16_t x, int16_t y);
+  float CalculateDirection(int16_t x, int16_t y);
   struct State {
     uint16_t  buttons;
     uint8_t   left_trigger;
     uint8_t   right_trigger;
-    sint16_t  thumb_lx;
-    sint16_t  thumb_ly;
-    sint16_t  thumb_rx;
-    sint16_t  thumb_ry;
+    int16_t  thumb_lx;
+    int16_t  thumb_ly;
+    int16_t  thumb_rx;
+    int16_t  thumb_ry;
   } state, last_state;
 };
 

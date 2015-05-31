@@ -111,7 +111,7 @@ void Xbox360Controller::Handle(void* data) {
   }
 }
 
-float Xbox360Controller::CalculateMagnitude(sint16_t x,sint16_t y) {
+float Xbox360Controller::CalculateMagnitude(int16_t x, int16_t y) {
     //determine how far the controller is pushed
   float magnitude = sqrt((float)x*(float)x + (float)y*(float)y);
 
@@ -136,7 +136,7 @@ float Xbox360Controller::CalculateMagnitude(sint16_t x,sint16_t y) {
   return normalizedMagnitude;
 }
 
-float Xbox360Controller::CalculateDirection(sint16_t x,sint16_t y) {
+float Xbox360Controller::CalculateDirection(int16_t x, int16_t y) {
   float magnitude = sqrt((float)x*(float)x + (float)y*(float)y);
   //determine the direction the controller is pushed
   float normalizedLX = (float)x / magnitude;

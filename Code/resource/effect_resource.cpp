@@ -9,7 +9,7 @@ bool EffectResource::Load() {
 
   if (Resource::ReadWholeFile() != S_OK)
     return false;
-  effect_ = new graphics::Effect();
+  effect_ = new ve::Effect();
   if (effect_->Initialize(&manager_->engine()->gfx_context()) != S_OK)
     return false;
   if (effect_->CreateFromMemory(data_pointer,data_length) != S_OK)

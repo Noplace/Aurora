@@ -16,7 +16,7 @@ class GameView : public EngineComponent {
   virtual void Draw() = 0;
  protected:
 
-  graphics::Camera camera_;
+  ve::Camera camera_;
 };
 
 

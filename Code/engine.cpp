@@ -22,7 +22,7 @@ int Engine::Initialize() {
     log.Channel("Engine").Log("ERROR: Engine::Initialize - gfx_context_->Initialize failed, ERROR Code = %08x\n",hr);
     return hr;
   }
-  hr = gfx_context_->CreateDisplay(window_);
+  hr = gfx_context_->CreateDisplay(window_->handle());
   if (hr != S_OK) {
     log.Channel("Engine").Log("ERROR: Engine::Initialize - gfx_context_->CreateDisplay failed, ERROR Code = %08x\n",hr);
     return hr;

@@ -40,14 +40,14 @@ class Resource  {
   uint32_t scope() { return scope_; }
   void set_scope(uint32_t scope) { scope_ = scope; }
   void set_uid(uint32_t uid) { uid_ = uid; }
-  void set_filename(const char* filename);
-  void set_filepath(const char* filepath);
+  void set_filename(const wchar_t* filename);
+  void set_filepath(const wchar_t* filepath);
   ResourceManager* manager() { return manager_; }
   void set_manager(ResourceManager* manager) { manager_ = manager; }
   void set_type(Type type) { type_ = type; }
   Type type() { return type_; }
-  const char* filename() { return filename_; }
-  const char* filepath() { return filepath_; }
+  const wchar_t* filename() { return filename_; }
+  const wchar_t* filepath() { return filepath_; }
   uint32_t uid() { return uid_; }
   bool loaded() { return loaded_; }
   void* data_pointer;
@@ -57,8 +57,8 @@ class Resource  {
   Type type_;
   uint32_t scope_;
   uint32_t uid_;
-  char filename_[256];
-  char filepath_[1024];
+  wchar_t filename_[256];
+  wchar_t filepath_[1024];
   bool loaded_;
 
 };

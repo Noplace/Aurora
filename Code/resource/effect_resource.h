@@ -12,9 +12,9 @@ class EffectResource : public Resource {
   virtual ~EffectResource()  {}
   virtual bool Load();
   virtual bool Unload();
-  graphics::Effect* effect() { return effect_; }
+  ve::Effect* effect() { return effect_; }
  protected:
-  graphics::Effect* effect_;
+  ve::Effect* effect_;
 };
 
 }
